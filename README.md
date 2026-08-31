@@ -6,14 +6,35 @@
 
 ## Quick Start
 
+### Option A: Use Existing CS:GO Data (Test Code)
+
 ```bash
 # Setup environment
 python -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 
-# Explore the simulation
+# Explore the simulation (uses CS:GO data if available)
 python inspector_demo.py
+```
+
+### Option B: Start CS2 Migration (Recommended)
+
+See [docs/CS2_DATA_PIPELINE.md](docs/CS2_DATA_PIPELINE.md) for detailed instructions.
+
+**Quick version:**
+```bash
+# 1. Install dependencies
+pip install -r requirements.txt
+
+# 2. Download CS2 demo files from HLTV.org
+
+# 3. Convert demos to training format
+python convert_cs2_demos.py path/to/demos --output data/cs2_parsed
+
+# 4. Extract CS2 map geometry (see download_cs2_map.py)
+
+# 5. Process data and train models (see trainer/)
 ```
 
 ## Features
