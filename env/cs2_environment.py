@@ -8,7 +8,7 @@ from pettingzoo import AECEnv
 from pettingzoo.utils import wrappers
 from panda3d.core import Vec3
 
-from .game_engine import CSGOEngine
+from .game_engine import CS2Engine
 from .config import COORDINATE_SCALE
 
 
@@ -25,7 +25,7 @@ def env(num_team_agents=5, render_mode=None, debug_mode=False, show_waypoints=Fa
 
 
 class raw_env(AECEnv):
-    metadata = {"render_modes": ["human"], "name": "csgo"}
+    metadata = {"render_modes": ["human"], "name": "cs2"}
 
     def __init__(self, num_team_agents, render_mode=None, debug_mode=False, show_waypoints=False, show_minimap=False):
         super().__init__()
@@ -36,7 +36,7 @@ class raw_env(AECEnv):
         )
 
         self.render_mode = render_mode
-        self.engine = CSGOEngine(num_team_agents, render_mode=render_mode, debug_mode=debug_mode,
+        self.engine = CS2Engine(num_team_agents, render_mode=render_mode, debug_mode=debug_mode,
                                 show_waypoints=show_waypoints, show_minimap=show_minimap)
 
         self.state_sequence = {
@@ -129,7 +129,7 @@ class raw_env(AECEnv):
     def close(self):
         self.engine.destroy()
 
-def transform_csgo_to_panda3d(x, y, z, return_vec3=False):
+def transform_cs2_to_panda3d(x, y, z, return_vec3=False):
     """
     Transforms a point from replay data space directly to Panda3D space.
     
@@ -175,7 +175,7 @@ def get_a_panda3d_position_sequence(file_idx=10):
     data_file = replay_data_files[file_idx]
     replay_data = np.load(os.path.join(REPLAY_DATA_FOLDER, data_file))
     all_player_positions = replay_data["player_trajectory"]
-    return transform_csgo_to_panda3d(all_player_positions)
+    return transform_cs2_to_panda3d(all_player_positions)
     
 
 if __name__ == "__main__":

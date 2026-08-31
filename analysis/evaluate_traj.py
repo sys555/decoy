@@ -4,11 +4,11 @@ from tqdm import tqdm
 import multiprocessing as mp
 import pandas as pd
 from functools import partial
-from utils import transform_csgo_to_panda3d
+from utils import transform_cs2_to_panda3d
 
 def process_trajectory(args):
     """Process a single trajectory for all players and metrics"""
-    from utils import transform_csgo_to_panda3d
+    from utils import transform_cs2_to_panda3d
     from evaluation import (procrustes_disparity, dtw_distance_normalized, 
                           euclidean_distance_normalized, rmse, frechet_distance,
                           interpolate_trajectory)
@@ -107,7 +107,7 @@ def load_trajectories(max_trajectories=None, do_transform=True):
 
     if do_transform:
         for key, trajectory in player_trajectories.items():
-            trajectory['player_trajectory'] = transform_csgo_to_panda3d(trajectory['player_trajectory'])
+            trajectory['player_trajectory'] = transform_cs2_to_panda3d(trajectory['player_trajectory'])
     
     return player_trajectories, waypoint_trajectories
 

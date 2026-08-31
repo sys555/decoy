@@ -1,4 +1,4 @@
-from env.csgo_environment import env
+from env.cs2_environment import env
 from download_decompiled_map import download_map_if_not_exist
 import time
 import numpy as np

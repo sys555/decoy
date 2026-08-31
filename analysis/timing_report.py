@@ -1,4 +1,4 @@
-from csgo_environment import env
+from cs2_environment import env
 import numpy as np
 import time
 

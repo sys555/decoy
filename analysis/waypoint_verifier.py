@@ -1,4 +1,4 @@
-from game_engine import CSGOEngine
+from game_engine import CS2Engine
 from utils import Direction
 import networkx as nx
 from typing import Set, Tuple
@@ -9,7 +9,7 @@ from config import PHYSICS_STEP
 class WaypointVerifier:
     def __init__(self, render_mode=None, waypoint_data_path=None):
         """Initialize the verifier with a game engine instance."""
-        self.engine = CSGOEngine(num_team_agents=1, render_mode=render_mode, debug_mode=True, waypoint_data_path=waypoint_data_path)
+        self.engine = CS2Engine(num_team_agents=1, render_mode=render_mode, debug_mode=True, waypoint_data_path=waypoint_data_path)
         self.invalid_connections: Set[Tuple[int, int]] = set()
         self.invalid_nodes: Set[int] = set()
         self.verification_timeout = 5.0  # seconds

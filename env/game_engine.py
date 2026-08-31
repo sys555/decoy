@@ -98,7 +98,7 @@ class GameStateLogger:
             winning_side=np.array(self.winning_team.name)
         )
 
-class CSGOEngine(ShowBase):
+class CS2Engine(ShowBase):
     def __init__(self, 
                  num_team_agents: int,
                  render_mode: Optional[Literal["spectator"]] = None, 

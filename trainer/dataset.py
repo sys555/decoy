@@ -67,10 +67,10 @@ class DataPoint:
     
 
 class DamageOutcomeDataset(Dataset):
-    """Dataset for CS:GO damage outcome prediction.
+    """Dataset for CS2 damage outcome prediction.
     
     Each data point is a tuple containing:
-        map_name (str): Name of the CS:GO map (e.g., 'de_overpass')
+        map_name (str): Name of the CS2 map (e.g., 'de_overpass')
         attacker_x (float): X coordinate of attacking player
         attacker_y (float): Y coordinate of attacking player
         attacker_z (float): Z coordinate (height) of attacking player
